@@ -11,8 +11,7 @@ import json
 
 client = commands.Bot(command_prefix='-', intents = discord.Intents.all(),help_command=None)
 
-
-welcome_msg_id = ''
+welcome_msg_id = 748925560012406825
 my_secret = os.environ["TOKEN"]
 suchatryhard_black = 0x000000
 
@@ -60,7 +59,7 @@ async def on_raw_reaction_add(payload):
 
         emoji = payload.emoji.name
         if emoji == '👍':
-            role = discord.utils.get(guild.roles, name="Subscribers")
+            role = discord.utils.get(guild.roles, name="verified")
         await member.add_roles(role)
 
 
@@ -71,25 +70,12 @@ async def on_raw_reaction_remove(payload):
         guild = await (client.fetch_guild(payload.guild_id))
         emoji = payload.emoji.name
         if emoji == '👍':
-            role = discord.utils.get(guild.roles, name="Subscribers")
+            role = discord.utils.get(guild.roles, name="verified")
         member = await (guild.fetch_member(payload.user_id))
         if member is not None:
             await member.remove_roles(role)
         else:
             print("Member not found")
-
-
-@client.command(pass_context=True)
-async def bye(ctx):
-    welcome_msg = discord.Embed(
-        title='Welcome to the official Server of SuchATryHard!',
-        description='React to this mesage to gain access to the server!',
-        color=suchatryhard_black,
-        timestamp = datetime.now()
-    )
-    msg = await ctx.channel.send(embed=welcome_msg)
-    await msg.add_reaction('👍')
-
 
 @client.command()
 @commands.has_permissions(administrator=True)
@@ -134,7 +120,7 @@ async def poll(ctx, message, *options):
     
 @client.command()
 async def socials(ctx):   
-  socials_list = ["YouTube","https://www.youtube.com/channel/UCHMXHaWoFTa4FRsm7aLaUbQ","Twitter","https://twitter.com/SuchATryHard","Twitch","https://www.twitch.tv/SuchATryHard"]
+  socials_list = ["YouTube","https://www.youtube.com/channel/UCHMXHaWoFTa4FRsm7aLaUbQ","Twitch","https://www.twitch.tv/SuchATryHard"]
   linktree = discord.Embed(
     title='Socials',
     description="\n".join(socials_list),

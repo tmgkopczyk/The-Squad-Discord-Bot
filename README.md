@@ -1,7 +1,6 @@
 ### SuchATryHard Server Bot
 
-This is the Discord bot that is being used in the official Discord Server of SuchATryHard! Feel free to fork the repository, but make sure to change the values located at the top of the main code, as these were values that are being used in that specific server.
-
+This is the Discord bot that is being used in the official Discord Server of SuchATryHard!
 ## Features
 
 * ### poll
